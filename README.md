@@ -17,7 +17,12 @@ pip install openpyxl
 
 
 
-En name_cubos.py muestra el catalogo de cubos
+#                                      #
+#            🚀 Sección de cubos      #
+#                                      #
+
+
+En ```name_cubos.py``` muestra el catalogo de cubos
 
 |id| catalog_name|
 |--|--|
