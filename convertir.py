@@ -1,6 +1,6 @@
 import pandas as pd
 
-def clean_pivot_table(file_path, sheet_name='Hoja1', output_path='cleaned_data.xlsx'):
+def clean_pivot_table(file_path, sheet_name='Hoja1', output_path='prueda.xlsx'):
     # Cargar el archivo Excel
     df = pd.read_excel(file_path, sheet_name=sheet_name, header=None)
     
