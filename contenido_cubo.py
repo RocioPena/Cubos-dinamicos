@@ -11,7 +11,7 @@ def rows_to_df(rows) -> pd.DataFrame:
     return df
 
 # Conexión al cubo específico "Recursos"
-cubo = 'Recursos'
+cubo = 'SIS_2024'
 dsn = 'Provider=MSOLAP.8;Password=Temp123!;Persist Security Info=True;User ID=SALUD\DGIS15;'
 dsn += f'Data Source=pwidgis03.salud.gob.mx;Update Isolation Level=2;Initial Catalog={cubo};'
 
