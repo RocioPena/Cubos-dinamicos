@@ -47,7 +47,7 @@ try:
     print(df_encabezados.to_string(index=False))
 
     # 🔸 Guardar como Excel
-    df_encabezados.to_excel(f"encabezados_{cubo}.xlsx", index=False, engine="openpyxl")
+    df_encabezados.to_excel(f"consulta_cubos/encabezados_{cubo}.xlsx", index=False, engine="openpyxl")
     print(f"\n✔ Archivo guardado como encabezados_{cubo}.xlsx")
 
 except Exception as e:

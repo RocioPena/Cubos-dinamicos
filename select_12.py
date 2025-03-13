@@ -62,8 +62,8 @@ try:
     print(df.head())
 
     # Guardar como Excel
-    # df.to_excel("dim_unidad.xlsx", index=False, engine="openpyxl")
-    # print("\n✔ Datos guardados en dim_unidad.xlsx")
+    df.to_excel("consulta_cubos/dim_unidad.xlsx", index=False, engine="openpyxl")
+    print("\n✔ Datos guardados en dim_unidad.xlsx")
 
 except Exception as e:
     print(f"❌ Error durante la consulta: {e}")
