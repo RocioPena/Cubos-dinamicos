@@ -25,8 +25,14 @@ Para ejecutar la API:
 ```bash
 python -m uvicorn api:app --host 0.0.0.0 --port 8080
 python -m uvicorn api_cubos:app --host 0.0.0.0 --port 8080
-
 ```
 ### Entorno de trabajo para consumir la API
  - Sistema operativo: Multiplataforma
  - Python: 3.12
+
+Para consumir la API 
+```bash
+python consumo_api.py
+```
+
+Solo que se tiene que poner que enpoint se quiere consumir y la IP de la API que se esta ejecutando como servidor
