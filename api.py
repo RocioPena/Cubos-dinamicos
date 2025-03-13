@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 import pandas as pd
 import win32com.client
+import pythoncom
 
 app = FastAPI()
 
@@ -19,6 +20,30 @@ CONNECTION_STRING = (
 
 
 def query_olap(connection_string: str, query: str) -> pd.DataFrame:
+    # Iniciar COM en este hilo
+    pythoncom.CoInitialize()
+    
+    conn = win32com.client.Dispatch("ADODB.Connection")
+    rs = win32com.client.Dispatch("ADODB.Recordset")
+
+    conn.Open(connection_string)
+    rs.Open(query, conn)
+
+    fields = [rs.Fields.Item(i).Name for i in range(rs.Fields.Count)]
+    data = []
+
+    while not rs.EOF:
+        row = [rs.Fields.Item(i).Value for i in range(rs.Fields.Count)]
+        data.append(row)
+        rs.MoveNext()
+
+    rs.Close()
+    conn.Close()
+
+    # Finalizar COM
+    pythoncom.CoUninitialize()
+
+    return pd.DataFrame(data, columns=fields)
     """ Ejecuta una consulta OLAP y devuelve un DataFrame """
     conn = win32com.client.Dispatch("ADODB.Connection")
     rs = win32com.client.Dispatch("ADODB.Recordset")

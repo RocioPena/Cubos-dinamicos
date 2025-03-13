@@ -35,3 +35,9 @@ Para consumir la API, es necesario instalar las siguientes librerías:
 pip install uvicorn     # Servidor ASGI ultrarrápido para ejecutar aplicaciones web asincrónicas.
 pip install fastapi     # Framework web moderno y veloz para construir APIs REST con tipado automático.
 ```
+
+
+
+
+<!-- comnado para consumir api desde otro sipositivo  -->
+python -m uvicorn main:app --host 0.0.0.0 --port 8080
