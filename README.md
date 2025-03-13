@@ -16,28 +16,17 @@ Es necesario instalar las [Bibliotecas cliente de Analysis Services](https://lea
 Una vez instaladas las bibliotecas, se deben instalar las siguientes dependencias ejecutando los siguientes comandos en la terminal:
 
 ```bash
-pip install pandas      # Librería para análisis y manipulación de datos con estructuras tipo DataFrame.
-pip install pywin32     # Permite interactuar con APIs de Windows (COM, automatización de Office, etc.).
-pip install openpyxl    # Permite leer y escribir archivos Excel (.xlsx) en Python.
+pip install requirements.txt      # Instalar librerias.
 ```
-Para ejecutar la API, simplemente corre el siguiente comando:
+
+
+Para ejecutar la API:
 
 ```bash
-python api.py
+python -m uvicorn api:app --host 0.0.0.0 --port 8080
+python -m uvicorn api_cubos:app --host 0.0.0.0 --port 8080
+
 ```
 ### Entorno de trabajo para consumir la API
  - Sistema operativo: Multiplataforma
  - Python: 3.12
-Para consumir la API, es necesario instalar las siguientes librerías:
-
-```bash
-
-pip install uvicorn     # Servidor ASGI ultrarrápido para ejecutar aplicaciones web asincrónicas.
-pip install fastapi     # Framework web moderno y veloz para construir APIs REST con tipado automático.
-```
-
-
-
-
-<!-- comnado para consumir api desde otro sipositivo  -->
-python -m uvicorn main:app --host 0.0.0.0 --port 8080
