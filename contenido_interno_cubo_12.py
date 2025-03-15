@@ -52,7 +52,7 @@ conn_str = (
 
 
 # busca lo que hay en VARIABLES
-query = "SELECT * FROM [SIS_2024].[$DIM UNIDAD]"
+query = "SELECT * FROM [SIS_2024].[$DIM TIEMPO]"
 
 
 try:
