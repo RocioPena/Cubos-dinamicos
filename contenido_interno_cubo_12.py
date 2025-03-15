@@ -52,7 +52,7 @@ conn_str = (
 
 
 # busca lo que hay en VARIABLES
-query = "SELECT * FROM [SIS_2024].[$DIM VARIABLES]"
+query = "SELECT * FROM [SIS_2024].[$DIM UNIDAD]"
 
 
 try:
@@ -62,7 +62,7 @@ try:
     print(df.head())
 
     # Guardar como Excel
-    df.to_excel("consulta_cubos/dim_unidad.xlsx", index=False, engine="openpyxl")
+    df.to_excel("consulta_cubos/dim_unidades.xlsx", index=False, engine="openpyxl")
     print("\n✔ Datos guardados en dim_unidad.xlsx")
 
 except Exception as e:
