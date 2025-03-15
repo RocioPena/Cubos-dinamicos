@@ -53,6 +53,48 @@ def get_dim_variables():
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
 
+@app.get("/dim_tiempo")
+def get_dim_tiempo():
+    """Consulta la dimensión DIM TIEMPO y devuelve los resultados"""
+    try:
+        query = "SELECT * FROM [SIS_2024].[$DIM TIEMPO]"
+        df = query_sql(CONNECTION_STRING, query)
+        return df.to_dict(orient="records")
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+
+@app.get("/dim_unidad")
+def get_dim_unidad():
+    """Consulta la dimensión DIM UNIDAD y devuelve los resultados"""
+    try:
+        query = "SELECT * FROM [SIS_2024].[$DIM UNIDAD]"
+        df = query_sql(CONNECTION_STRING, query)
+        return df.to_dict(orient="records")
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+
+@app.get("/dim_modulo")
+def get_dim_modulo():
+    """Consulta la dimensión DIM MODULO y devuelve los resultados"""
+    try:
+        query = "SELECT * FROM [SIS_2024].[$DIM MODULO]"
+        df = query_sql(CONNECTION_STRING, query)
+        return df.to_dict(orient="records")
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+@app.get("/dim_origen")
+def get_dim_origen():
+    """Consulta la dimensión DIM ORIGEN y devuelve los resultados"""
+    try:
+        query = "SELECT * FROM [SIS_2024].[$DIM ORIGEN]"
+        df = query_sql(CONNECTION_STRING, query)
+        return df.to_dict(orient="records")
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
 
 @app.get("/exportar_dim_variables")
 def export_dim_variables():

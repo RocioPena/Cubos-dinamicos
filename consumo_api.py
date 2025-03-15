@@ -1,6 +1,6 @@
 import requests
 
-url = "http://IP:8080/medidas"  # IP del dispositivo 
+url = "http://localhost:8080/medidas"  # IP del dispositivo 
 try:
     response = requests.get(url, timeout=10) 
     if response.status_code == 200:
