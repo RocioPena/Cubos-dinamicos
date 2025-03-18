@@ -52,9 +52,10 @@ def ejecutar_mdx(connection_string: str, mdx_query: str) -> pd.DataFrame:
 def consulta_dinamica(filtros: ConsultaRequest = Body(...)):
     try:
         # Armar lista MDX
-        mdx_variables = ", ".join([f"[$DIM VARIABLES].[{v}]" for v in filtros.variables])
-        mdx_unidades = ", ".join([f"[$DIM UNIDAD].[{u}]" for u in filtros.unidades])
-        mdx_fechas = ", ".join([f"[$DIM TIEMPO].[{f}]" for f in filtros.fechas])
+        mdx_variables = ", ".join([f"[Measures].[{v}]" for v in filtros.variables])
+        mdx_unidades = ", ".join([f"[DIM MODULO].[Módulo].[{u}]" for u in filtros.unidades])
+        mdx_fechas = ", ".join([f"[DIM TIEMPO].[Año].[{f}]" for f in filtros.fechas])
+
 
         # Armar MDX final (ajustar jerarquías si es necesario)
         mdx_query = f"""
