@@ -36,3 +36,65 @@ python consumo_api.py
 ```
 
 Solo que se tiene que poner que enpoint se quiere consumir y la IP de la API que se esta ejecutando como servidor
+
+# JSON para consultas de tiempo, variable y unidad 
+
+## Cuantas unidades hay registradas  en ese estado
+
+```bash
+{
+  "variables": ["[Measures].[Total de CLUES]"],
+  "unidades": ["[DIM UNIDAD].[Entidad].[CIUDAD DE MEXICO]"],
+  "fechas": ["[DIM TIEMPO].[PERIODO].[202406]"],
+  "filtros_where": ["[DIM VARIABLES].[Variable].[CES14 OFTALMOLOGÍA SUBSECUENTE]"]
+}
+
+
+
+
+
+{
+  "variables": ["[Measures].[Total de CLUES]"],
+  "unidades": ["[DIM UNIDAD].[Entidad].[HIDALGO]"],
+  "fechas": ["[DIM TIEMPO].[PERIODO].[202406]"],
+  "filtros_where": ["[DIM VARIABLES].[Variable].[CES14 OFTALMOLOGÍA SUBSECUENTE]"]
+}
+
+```
+
+## Muestra todos los estados que tiene dicha especialidad
+```bash
+
+{
+  "variables": ["[Measures].[Total de CLUES]"],
+  "unidades": ["[DIM UNIDAD].[Entidad].[Entidad]"],
+  "fechas": ["[DIM TIEMPO].[PERIODO].[202406]"],
+  "filtros_where": [
+    "[DIM VARIABLES].[Variable].[CES14 OFTALMOLOGÍA SUBSECUENTE]"
+  ]
+}
+
+```
+
+### Debería mostrar la información de  unidad (municipio, entidad, localidad), pero nos manda vacio 
+
+![alt text](image-1.png)
+
+```bash
+
+{
+  "variables": ["[Measures].[Total de CLUES]"],
+  "unidades": [
+    "[DIM UNIDAD].[Entidad Municipio Localidad].[Entidad].&[AGUASCALIENTES]",
+    "[DIM UNIDAD].[Entidad Municipio Localidad].[Municipio]",
+    "[DIM UNIDAD].[Entidad Municipio Localidad].[Localidad]"
+  ],
+  "fechas": ["[DIM TIEMPO].[PERIODO].[202406]"],
+  "filtros_where": ["[DIM VARIABLES].[Variable].[CES14 OFTALMOLOGÍA SUBSECUENTE]"]
+}
+
+```
+
+
+
+
