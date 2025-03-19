@@ -95,6 +95,33 @@ Solo que se tiene que poner que enpoint se quiere consumir y la IP de la API que
 
 ```
 
+### Esta consulta devolverá el listado completo de miembros (especialidades) disponibles en la dimensión [DIM VARIABLES].[Variable].
+
+```bash
+{
+  "variables": ["[Measures].[Total de CLUES]"],
+  "unidades": ["[DIM VARIABLES].[Variable].MEMBERS"],
+  "fechas": ["[DIM TIEMPO].[PERIODO].[202406]"]
+}
+
+```
+### consultando los miembros de la dimensión [DIM VARIABLES].[Variable]
+
+```bash
+
+{
+  "variables": ["[Measures].[Total de CLUES]"],
+  "unidades": ["[DIM VARIABLES].[Variable].MEMBERS"],
+  "fechas": ["[DIM TIEMPO].[PERIODO].[202406]"],
+  "filtros_where": [
+    "[DIM UNIDAD].[Entidad].[HIDALGO]"
+  ]
+}
+
+
+```
+
+
 
 
 
