@@ -120,7 +120,36 @@ Solo que se tiene que poner que enpoint se quiere consumir y la IP de la API que
 
 
 ```
+### Muestra que Municipios hay en un estado
+```bash 
 
+{
+  "variables": ["[Measures].[Total de CLUES]"],
+  "unidades": ["[DIM UNIDAD].[Municipio].[Municipio].MEMBERS"],
+  "fechas": ["[DIM TIEMPO].[PERIODO].[202406]"],
+  "filtros_where": [
+    "[DIM UNIDAD].[Entidad].[HIDALGO]"
+  ]
+}
+
+
+```
+
+### Distribución del Total de Unidades de Salud (CLUES) por Entidad Federativa
+
+```bash
+
+{
+  "variables": ["[Measures].[Total de CLUES]"],
+  "unidades": [
+    "[DIM UNIDAD].[Entidad].[Entidad]",
+    "[DIM UNIDAD].[Tipología Unidad].[Tipología Unidad]"
+  ],
+  "fechas": ["[DIM TIEMPO].[PERIODO].[202406]"]
+}
+
+
+```
 
 
 
