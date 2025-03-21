@@ -1,4 +1,4 @@
-
+# ---------- main.py (API FastAPI con encabezado flexible) ----------
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
@@ -35,6 +35,7 @@ class ConsultaDinamica(BaseModel):
     fechas: list[str] | None = None
     filtros_where: list[str] | None = None
     entidad_filtro: str | None = None
+    modo_encabezado: str | None = "nombre"  # nuevo: "nombre" o "codigo+nombre"
 
 def query_olap(connection_string: str, query: str) -> pd.DataFrame:
     pythoncom.CoInitialize()
@@ -109,7 +110,10 @@ def ejecutar_consulta(payload: ConsultaDinamica) -> list[dict]:
         if "Variable].&[VBC" in col:
             clave = col.split("&[")[-1].replace("]", "")
             nombre = clave_to_variable.get(clave, clave)
-            renamed_columns[col] = nombre 
+            if payload.modo_encabezado == "codigo+nombre":
+                renamed_columns[col] = f"{clave} - {nombre}"
+            else:
+                renamed_columns[col] = nombre
     df.rename(columns=renamed_columns, inplace=True)
 
     return sanitize_result(df.to_dict(orient="records"))

@@ -152,5 +152,44 @@ Solo que se tiene que poner que enpoint se quiere consumir y la IP de la API que
 ```
 
 
+### ejemplo de consulta de   PACHUCA HGIMB002403 con las siguientes variables
+VBC01
+VBC02
+VBC03
+VBC51
+VBC52
+VBC53
+VBC54
+VBC55
+
+```bash
+
+{
+  "variables_clave": ["VBC01", "VBC02", "VBC03", "VBC51", "VBC52", "VBC53", "VBC54"],
+  "unidades": ["[DIM UNIDAD].[CLUES].[HGIMB002403]"]
+}
+
+
+
+```
+
+Resultado:
+![alt text](image-2.png)
+
+
+
+### Para  que los metodos de la api puedan ser consumidos desde el archivo app.py primero se debe de correr la API (filtrado_post.py) y despues correr el archivo app.py, el cual consume directamente las varibales
+
+
+```bash
+#Comando para correr API
+python -m uvicorn filtrado_post:app --reload --host 0.0.0.0 --port 8080
+
+#Comando para correr app.py
+
+python app.py
+
+```
+
 
 
